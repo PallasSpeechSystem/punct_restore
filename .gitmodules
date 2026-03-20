@@ -1,0 +1,9 @@
+[submodule "modulos/kenlm"]
+	path = modulos/kenlm
+	url = https://github.com/kpu/kenlm
+[submodule "modulos/sentencepiece"]
+	path = modulos/sentencepiece
+	url = https://github.com/google/sentencepiece
+[submodule "modulos/argparse"]
+	path = modulos/argparse
+	url = https://github.com/p-ranav/argparse
