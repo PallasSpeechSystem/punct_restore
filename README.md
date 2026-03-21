@@ -11,8 +11,8 @@ Implementação do algoritmo *Beam Score* para maximação de resultados.
 
 # MVP
 
-O restaurador irá suportar as seguintes pontuações: **!** **?** **,** **.**
-Os modelos de tokenização e de N-grams focará: **Português Brasileiro Informal (Fala Espontânea).** Tendo em vista que terá exemplos do português brasileiro formal para os modelos entendam a estrutura gramática da língua.
+- O restaurador irá suportar as seguintes pontuações: **!** **?** **,** **.**
+- Os modelos de tokenização e de N-grams focará: **Português Brasileiro Informal (Fala Espontânea).** Tendo em vista que terá exemplos do português brasileiro formal para os modelos entendam a estrutura gramática da língua.
 
 # To-do List 
 
@@ -20,5 +20,31 @@ Os modelos de tokenização e de N-grams focará: **Português Brasileiro Inform
 - [ ] Testar implementação do [[KenLM]] com modelo simple e mostrar score da frase;
 - [ ] Treinar modelo base sem SentencePiece;
 - [ ] Testar implementação do score com *for* para diversas pontuações;
-- [ ] Implementação do Beam Score;
+- [ ] Implementação do Beam Search;
+
+## Incluir bibliotecas principais
+
+```cpp
+#include "lm/model.hh"
+#include <iostream>
+#include <string>
+```
+
+- **lm/model.hh** - Biblioteca do [[KenLM]] para trabalha com os modelos N-grams;
+- **iostream** e **string** - Bibliotecas padrões do C++ para trabalhar com strings;
+
+## Funções Principais
+
+- **lm::ngram::Model model("file.binary");** - Carregar modelo N-grams convertido em binário;
+- **lm::ngram::State state(model.BeginSentenceState()), out_state;** - Inicializar modelo N-grams. 
+- **const lm::ngram::Vocabulary &vocab = model.GetVocabulary();** - Carregar vocabulário do modelo N-gram. 
+- **model.Score(state, vocab.Index(word), out_state)** - Medir score (*log10 probability*) da frase (variável **word**) usando o modelo N-grams. 
+	- A função BaseScore pode ser usada para implementação do Beam Search, utilizando acrecimos de *token* (palavras). 
+
+
+
+
+
+
+
 
