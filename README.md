@@ -1,4 +1,3 @@
-
 Restaurador de Pontuações para Texto baseado em N-grams e SentencePiece. 
 
 # Metodología
@@ -16,14 +15,7 @@ Implementação do algoritmo **Ganacioso (Guloso)** para maximação de resultad
 
 # To-do List 
 
-- [ ] Implementação do [[KenLM]] e teste básico a linguagem C++;
-- [ ] Testar implementação do [[KenLM]] com modelo simple e mostrar score da frase;
-- [ ] Treinar modelo base sem SentencePiece;
-- [ ] Testar implementação do score com *for* para diversas pontuações;
-- [ ] Implementação do algoritmo guloso;
-
-## Incluir bibliotecas principais
-
+- [ ] Replanejamento...
 
 
 
