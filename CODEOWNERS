@@ -2,4 +2,6 @@
 /datasets/* @Pallas13
 /scripts/* @Pallas13
 /src @Pallas13
-/doc @Pallas13
+/doc @Pallas13 @guswish @eguiaraujo07 
+app.py @Mit-Guima @Pallas13
+
