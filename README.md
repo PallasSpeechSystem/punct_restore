@@ -1,60 +1,42 @@
-Restaurador de Pontuações para Texto baseado em N-grams e SentencePiece. 
-
+Colocar pontuações (Ex: ? , ! .) para textos brutos, usando de n-grams para rapidez e SentencePiece para lidar com palavras desconhecidas.
 # Metodología
 
-Usar modelos N-grams em conjunto com SentencePiece para restaurar pontuações de textos. Usar as bibliotecas do [[KenLM]] e SentencePiece em Python, utilizando modelos quantizados.
+Restaurador de pontuações baseado em modelos N-grams utilizando a técnica de tokenização em sub-palavras (sub-words ) para lidar com palavras que nunca foram vista no treinamento do modelo N-grams (Out-of-Vocabulary - OOV). 
 
-O SentencePiece é usando no restaurador para lidar com palavras fora do vocabulário utilizando sub-palavras (*sub-words*). O corpus de treinamento vai ser passando para treinar um outro modelo de tokenização e tratar o corpus após a tokenização passar a ser treinado o modelo N-gram utilizando [[KenLM]]. 
+São usados as seguintes ferramentas:
+
+- KenLM: Modelagem e Uso de Modelos N-grams.
+- SentencePiece: Tokenização de palavras para sub-palavras (sub-words).
+
+![PipeLine do Treinamento](./imgs/pipeline_trainamento_restaurador.svg)
+
+
+Para escolher melhor pontuação, é usando o **Algoritmo Ganancioso** **(Greedy Algorithm)** com contexto da (texto_anterior + palavras_atual + pontuação + palavras_posterior) para lidar obter melhores resultados. 
 
 # MVP
 
-- O restaurador irá suportar as seguintes pontuações: **!** **?** **,** **.**
-- Os modelos de tokenização e de N-grams focará: **Português Brasileiro Informal (Fala Espontânea).** Tendo em vista que terá exemplos do português brasileiro formal para os modelos entendam a estrutura gramática da língua.
-- Imprentação e uso do algotitmo **Ganacioso (Guloso)** para escolha de melhor pontuação.
-
-## To-do List 
-
-- [ ] Definir requisitos funcionais e não funcionais;
-- [ ] Organizar etapas do desenvolvimento do [[Restaurador de Pontuação]]. 
-- [ ] Planejar cronograma de desenvolvimento.
-	- [ ] (10/04) - Desenvolver apresentação do projeto.
-	- [ ] (14/04) - Desenvolver documentação como instalação, uso e informações dos modelos. Colocar no repositório Git do projeto e no site da organização PallasSpeechSystem. 
+- O Restaurador será ser capaz de atualizar 
 
 ## Requisitos 
+
 **Requisitos Funcionais:** 
 
-- Processar frase e retornar a frase pontuada;
-- Pontuações Base da Língua Portuguesa: "." "," "!" "?"
-- Implementação do Algoritmo Guloso para escolha da melhor pontuação.
+- **Entrada:** Texto Bruto (sem pontuações).
+- **Saída:** Texto com pontuações.
+- **Suporte as seguintes pontuações:**
+	- Virgula (**,**);
+	- Ponto Final (**.**);
+	- Ponto de Interrogação (**?**);
+	- Ponto de Exclamação (**!**);
 
 **Requisitos Não Funcionais:**
 
-- Entrada para modelos ngram e tokenizador customizados.
-- Entrada de texto via linha de comando. 
-	- Exemplos:
-		- --text "texto" - Entrada do Texto;
-		- --ngram_model - Localização do modelo ngram;
-		- --token_model - Localização do modelo SentencePiece;
-- Saída em txt caso informando
-	- --output - Localização do arquivo de saída com texto informando se não informado retorna via **STDIN**. 
+- **Interface Gráfica:** Restaurador ter uma interface gráfica para fácil uso.
 
 
-# Corpus
+# Corpus usando para treinamento dos modelos N-grams e SentencePiece.
 
-- Aya Collection (Portuguese Split)
-- OpenSubtitles
-- Tatoeba (Portuguese Split)
-- BlogSet-BR
-
-## MVP
-
-**Formal (Basíco da Linguagem):**
-
-- tatoeba;
-- Aya Collection (Portuguese Split)
-
-**Informal (Foco do MVP)**
-
-- OpenSubtitles; 
-- BlogSet-BR
-
+- Aya Collection (Portuguese Split) - Português Formal;
+- Tatoeba (Portuguese Split) - Português Formal;
+- OpenSubtitles (Português Split) - Português Informal;
+- BlogSet-BR - Português da Internet (internetês);
