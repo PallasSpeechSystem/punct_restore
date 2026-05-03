@@ -8,10 +8,11 @@ São usados as seguintes ferramentas:
 - KenLM: Modelagem e Uso de Modelos N-grams.
 - SentencePiece: Tokenização de palavras para sub-palavras (sub-words).
 
+PipeLine do Treinamento:
 ![PipeLine do Treinamento](./imgs/pipeline_trainamento_restaurador.svg)
 
 
-Para escolher melhor pontuação, é usando o **Algoritmo Ganancioso** **(Greedy Algorithm)** com contexto da (texto_anterior + palavras_atual + pontuação + palavras_posterior) para lidar obter melhores resultados. 
+Para escolher melhor pontuação, é usando o **Algoritmo Ganancioso** **(Greedy Algorithm)** com contexto de (palavra_anterior + palavras_atual + pontuação + palavra_posterior) para lidar com limitação do **Algoritmo Ganancioso** **(Greedy Algorithm)**.
 
 # MVP
 
