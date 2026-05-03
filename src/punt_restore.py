@@ -34,7 +34,7 @@ def carregar_modelos():
     SENTENCE_MODEL = os.path.join(base_path, "models/tokenizer/m32k.model")
     status_carregar_modelos = 0
 
-    # Os if são usados para informar que os modelos existem, se não returnar erro e informar qual erro.
+    # Os ifs são usados para verificar que os modelos existem, se não informar qual/quais modelos não estão presentes no return da função.
     if not (os.path.exists(LM_MODEL)) and not (os.path.exists(SENTENCE_MODEL)):
         status_carregar_modelos = "Modelos N-Gram e Sentence não encontrado!"
         model = 0
