@@ -2,3 +2,5 @@
 models/tokenizer/*.vocab
 models/tokenizer/*.model
 datasets/
+src/__pycache__/*.pyc
+__pycache__
