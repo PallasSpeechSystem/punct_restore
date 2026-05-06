@@ -1,5 +1,0 @@
-icukit
-kenlm
-scikit-learn
-sentencepiece
-streamlit
