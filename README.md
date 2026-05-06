@@ -14,10 +14,6 @@ PipeLine do Treinamento:
 
 Para escolher melhor pontuação, é usando o **Algoritmo Ganancioso** **(Greedy Algorithm)** com contexto de (palavra_anterior + palavras_atual + pontuação + palavra_posterior) para lidar com limitação do **Algoritmo Ganancioso** **(Greedy Algorithm)**.
 
-# MVP
-
-- O Restaurador será ser capaz de atualizar 
-
 ## Requisitos 
 
 **Requisitos Funcionais:** 
