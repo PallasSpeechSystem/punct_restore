@@ -3,11 +3,9 @@
 import os
 
 from math import inf
-
-import icukit
+import unicodedata
 import kenlm
 import sentencepiece as spm
-from icukit.unicode import NFC
 
 pontuacoes = ["?", ",", ".", "!", False]
 
@@ -139,7 +137,6 @@ def restaurar_pontuacao(texto):
     if not (status == 0):
         return "ERRO: " + status
     else:
-        # A biblioteca icukit é usada para normalizar o texto.
-        # Garantir os acertos das palavras estejam "no lugar certo"
-        texto_normalizado = icukit.normalize(texto, NFC).lower()
+        # Uso da função unicodedata.normalize() é garantir que os acertos da palavras sejam processandos corretamente.
+        texto_normalizado = unicodedata.normalize("NFC", texto).lower()
         return pontuador(texto_normalizado, model, sp)
