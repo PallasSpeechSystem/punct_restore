@@ -1,3 +1,4 @@
+gdown
 kenlm
 sentencepiece
 streamlit
