@@ -9,8 +9,13 @@ from math import inf
 import unicodedata
 import kenlm
 import sentencepiece as spm
-
+import re
 pontuacoes = ["?", ",", ".", "!", False]
+
+# Pos-Processar Texto Final da função pontuador(), unir pontuações com a palavra
+def pos_processamento(texto_final):
+    texto_final_processado = re.sub(r'\s+([?,.!])', r'\1', texto_final).capitalize()
+    return texto_final_processado
 
 # Uma função para dar penalidades a pontuações para o modelo não viciar em apenas colocar pontos em tudo ou em nada.
 # Valores foram escolhidos aleatóriamente, mas é possível editar para obter outros resultados.
@@ -20,9 +25,9 @@ def penalidades(pontuacao):
     elif pontuacao == "?":
         penalidade = 0.6
     elif pontuacao == ",":
-        penalidade = 0.6
+        penalidade = 0.4
     elif pontuacao == ".":
-        penalidade = 0
+        penalidade = 0.4
     elif pontuacao == "!":
         penalidade = 0.6
     else:
@@ -142,4 +147,4 @@ def restaurar_pontuacao(texto):
     else:
         # Uso da função unicodedata.normalize() é garantir que os acertos da palavras sejam processandos corretamente.
         texto_normalizado = unicodedata.normalize("NFC", texto).lower()
-        return pontuador(texto_normalizado, model, sp)
+        return pos_processamento(pontuador(texto_normalizado, model, sp))
