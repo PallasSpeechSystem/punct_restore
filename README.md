@@ -37,3 +37,14 @@ Para escolher melhor pontuação, é usando o **Algoritmo Ganancioso** **(Greedy
 - Tatoeba (Portuguese Split) - Português Formal;
 - OpenSubtitles (Português Split) - Português Informal;
 - BlogSet-BR - Português da Internet (internetês);
+
+# Instalação e Uso
+
+Para instalar e usar o restaurador veja a documentação feita em [doc/use/README.md](./doc/use/README.md)
+
+# Mudança para o futuro
+
+- Adição de mais idiomas.
+- Melhoria e trocar do algoritmo de seleção.
+- Melhoria nos modelos N-grans e SentenciePiece.
+
