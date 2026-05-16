@@ -1,3 +1,9 @@
+# Copyright (C) 2026 Pallas da Silva Guedes - PallasSpeechSystem
+#This file is part of "Punct Restore".
+#Punct Restore is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+#Punct Restore is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#You should have received a copy of the GNU General Public License along with Punct Restore. If not, see <https://www.gnu.org/licenses/>.
+
 # Importa função de restaurar pontuação do moto
 from src.punt_restore import restaurar_pontuacao
 import streamlit as st
