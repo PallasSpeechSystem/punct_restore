@@ -42,8 +42,8 @@ def verificar_modelos():
 		return model, sp, status_carregar_modelos
 
 model, sp, status_carregar_modelos = verificar_modelos()
-model_ngram_id = "https://drive.google.com/file/d/1k_SlXdCMrzyl1zPnu7bAREvlXLoB4tQg/view?usp=sharing"
-model_sentencepiece_id = "https://drive.google.com/file/d/1kQLlnhZ7A6YyaW2ICjWOhfuGiWCAdqsd/view?usp=sharing"
+model_ngram_url = "https://drive.google.com/file/d/1k_SlXdCMrzyl1zPnu7bAREvlXLoB4tQg/view?usp=sharing"
+model_sentencepiece_url = "https://drive.google.com/file/d/1kQLlnhZ7A6YyaW2ICjWOhfuGiWCAdqsd/view?usp=sharing"
 hash_ngram_model = "sha256:f592ea0cbe15d3b5722d5b03d69e86a1e779a1150e9f514c916a81b53632c367"
 hash_sentencepiece_model = "sha256:532ac70c7b92af307c0a7617998c2df4fa451de0c6bcb4b11199f97d3f022791"
 
@@ -51,21 +51,21 @@ if model == 1 and sp == 1:
 	print(status_carregar_modelos)
 	print("Baixando Modelos N-Gram e SentencePiece")
 	print("Baixando Modelo N-Gram:")
-	gdown.download(url=model_ngram_id, quiet=True, progress=on_progress, output=LM_MODEL)
+	gdown.download(url=model_ngram_url, quiet=True, progress=on_progress, output=LM_MODEL)
 	print()
 	print("Baixando Modelo SentencePiece:")
-	gdown.download(url=model_sentencepiece_id, quiet=True, progress=on_progress, output=SENTENCE_MODEL)
+	gdown.download(url=model_sentencepiece_url, quiet=True, progress=on_progress, output=SENTENCE_MODEL)
 	print()
 elif model == 0 and sp == 1:
 	print(status_carregar_modelos)
 	print("Baixando Modelo SentencePiece:")
-	gdown.download(url=model_sentencepiece_id, quiet=True, progress=on_progress, output=SENTENCE_MODEL)
+	gdown.download(url=model_sentencepiece_url, quiet=True, progress=on_progress, output=SENTENCE_MODEL)
 	print()
 elif model == 1 and sp == 0:
 	print(status_carregar_modelos)
 	print("Baixando Modelo N-Gram:")
 	print()
-	gdown.download(id=model_ngram_id, quiet=True, progress=on_progress, output=LM_MODEL)
+	gdown.download(id=model_ngram_url, quiet=True, progress=on_progress, output=LM_MODEL)
 	print()
 else:
 	print(status_carregar_modelos)
